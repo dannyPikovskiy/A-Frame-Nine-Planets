@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Solar System</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- motion script -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@436d40c/dist/aframe-extras.min.js"></script>
+</head>
+
+    <body>
+        <a-scene>
+            <!-- Cammera -->
+            <a-entity id="rig" movement-controls="fly: true; speed: 50">
+                <a-entity camera
+                    position="0 100 400"
+                    look-controls>
+                </a-entity>
+            </a-entity>
+
+            <!-- asset mannager -->
+            <a-assets>
+                <!-- Sun Source: https://www.fddb.org/fulldome-images/nasa-solar-dynamics-observatory-sun-at-30-4nm/ -->
+                <img id="Sun" src="assets/SunTexture.jpeg">
+                <!-- Mercury Source: https://solarsystem.nasa.gov/resources/531/enhanced-color-mercury-map/ -->
+                <img id="Mercury" src="assets/MercuryTexture.jpeg">
+                <!-- Venus Source: https://commons.wikimedia.org/wiki/File:Solarsystemscope_texture_8k_venus_surface.jpg -->
+                <img id="Venus" src="assets/VenusTexture.jpeg">
+                <!-- Earth, Mars, Jupiter, Saturn + Saturn Rings, Uranus, Stars, and Moon Source: https://www.solarsystemscope.com/textures/ -->
+                <img id="Earth" src="assets/EarthTexture.jpeg">
+                <img id="Mars" src="assets/MarsTexture.jpeg">
+                <img id="Jupiter" src="assets/JupiterTexture.jpeg">
+                <img id="Saturn" src="assets/SaturnTexture.jpeg">
+                <img id="SaturnRings" src="assets/SaturnRingsTexture.png">
+                <img id="Uranus" src="assets/UranusTexture.jpeg">
+                <img id="Neptune" src="assets/NeptuneTexture.jpeg">
+                <img id="Stars" src="assets/StarsTexture.jpeg">
+                <img id="Moon" src="assets/MoonTexture.jpeg">
+                <!-- Pluto Source: https://planet-texture-maps.fandom.com/wiki/Pluto -->
+                <img id="Pluto" src="assets/PlutoTexture.webp">
+            </a-assets>
+
+            <!-- Sky -->
+            <a-sky 
+                src="#Stars"
+                radius="6000">
+            </a-sky>
+
+
+            <!-- Temp Plane
+            <a-plane
+                position="0 -20 0"
+                rotation="-90 0 0" 
+                width="100" 
+                height="100"
+                color="#145c2e"
+                shadow>
+            </a-plane> -->
+
+
+
+            <!-- Solar System -->
+            <!-- Sun -->
+            <a-entity position="0 0 0">
+                <a-sphere src="#Sun"
+                    radius="100"
+                    position="0 0 0"
+                    animation="property: rotation;
+                            to: 0 360 0;
+                            loop: true;
+                            dur: 27000;
+                            easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <!-- Mercury -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 16000;
+                             easing: linear">
+                <a-sphere src="#Mercury"
+                    position="180 0 0"
+                    radius="4"
+                    animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 30000;
+                                easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <!-- Venus -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 42000;
+                             easing: linear">
+                <a-sphere src="#Venus"
+                    position="260 0 0"
+                    radius="6"
+                    animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 47000;
+                                easing: linear">
+                </a-sphere>
+            </a-entity>
+            
+            <!-- Earth -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 50000;
+                             easing: linear">
+                <a-entity>
+                    <a-sphere src="#Earth"
+                        position="360 0 0"
+                        radius="6.4"
+                        animation="property: rotation;
+                                    to: 0 360 0;
+                                    loop: true;
+                                    dur: 1000;
+                                    easing: linear">
+                    </a-sphere>
+                    <!-- Moon -->
+                    <a-entity position="360 0 0"
+                            animation="property: rotation;
+                                    to: 0 360 0;
+                                    loop: true;
+                                    dur: 9000;
+                                    easing: linear">
+                        <a-sphere src="#Moon"
+                            position="20 0 0"
+                            radius="2"
+                            animation="property: rotation;
+                                        to: 0 360 0;
+                                        loop: true;
+                                        dur: 8000;
+                                        easing: linear">
+                        </a-sphere>
+                    </a-entity>
+                </a-entity>
+                    
+            </a-entity>
+
+            <!-- Mars -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 90000;
+                             easing: linear">
+                <a-sphere src="#Mars"
+                    position="450 0 0"
+                    radius="6.4"
+                    animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 1020;
+                                easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <!-- Jupiter -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 590000;
+                             easing: linear">
+                <a-sphere src="#Jupiter"
+                    position="1200 0 0"
+                    radius="45"
+                    animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 400;
+                                easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <!-- Saturn -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 1450000;
+                             easing: linear">
+                <a-entity position="1850 0 0" 
+                        animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 444;
+                                easing: linear">
+                    <a-sphere src="#Saturn"
+                        radius="30">
+                    </a-sphere>
+                </a-entity>
+                    <!-- Rings -->
+                    <a-entity position="1850 0 0"
+                            animation="property: rotation;
+                            to: 0 360 0;
+                            loop: true;
+                            dur: 10000;
+                            easing: linear">
+                        <a-ring position="0 0 0"
+                            rotation="-90 125 0"
+                            src="#SaturnRings"
+                            radius-inner="40" 
+                            radius-outer="70"
+                            side="double">
+                        </a-ring>
+                    </a-entity>
+            </a-entity>
+
+            <!-- Uranus -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 4200000;
+                             easing: linear">
+                <a-sphere src="#Uranus"
+                    position="2800 0 0"
+                    radius="18"
+                    animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 700;
+                                easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <!-- Neptune -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 8250000;
+                             easing: linear">
+                <a-sphere src="#Neptune"
+                    position="4000 0 0"
+                    radius="16"
+                    animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 600;
+                                easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <!-- Pluto -->
+            <a-entity position="0 0 0"
+                  animation="property: rotation;
+                             to: 0 360 0;
+                             loop: true;
+                             dur: 10400000;
+                             easing: linear">
+                <a-sphere src="#Pluto"
+                    position="4900 0 0"
+                    radius="4"
+                    animation="property: rotation;
+                                to: 0 360 0;
+                                loop: true;
+                                dur: 6300;
+                                easing: linear">
+                </a-sphere>
+            </a-entity>
+
+        </a-scene>
+    </body>
+
+</html>
